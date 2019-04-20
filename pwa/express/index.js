@@ -12,8 +12,6 @@ app.listen(port, () => console.log(`SurveyFive listening on port ${port}!`));
 /***** MIDDLEWARE *****/
 /***** MIDDLEWARE *****/
 
-const timestamp = new Date().toLocaleTimeString();
-
 app.use((req, res, next) => {});
 
 /***** MIDDLEWARE *****/
@@ -24,7 +22,7 @@ app.use((req, res, next) => {});
 const mongoURI =
   'mongodb+srv://admin:admin@hoima-dsbni.mongodb.net/questionnaire?retryWrites=true';
 // const mongoURI = process.env.REACT_APP_MONGO;
-
+const timestamp = new Date().toLocaleTimeString();
 const db = mongoURI;
 
 // Provides info on connection status
@@ -32,7 +30,11 @@ const db = mongoURI;
 // https://mongoosejs.com/docs/deprecations.html
 mongoose
   .connect(db, { dbName: 'questionnaire', useNewUrlParser: true })
-  .then(() => console.log(`${'\n'}🕒  ${timestamp} 🕒 ${'\n'}✅ ✅ ✅  WERE LIVE! MongoDB SUCCESSFULLY CONNECTED ${'\n'}`))
+  .then(() =>
+    console.log(
+      `${'\n'}🕒  ${timestamp} 🕒 ${'\n'}✅ ✅ ✅  WERE LIVE! MongoDB SUCCESSFULLY CONNECTED ${'\n'}`
+    )
+  )
   .catch(err => console.error(`${'\n'}❌ ❌ ❌  CONNECTION ERROR: `, err));
 
 // db.on('error', console.error.bind(console, 'CONNECTION ERROR: '));
@@ -53,6 +55,22 @@ const Questions = mongoose.model('question', questionnaireSchema, 'questions');
 /***** ROUTES *****/
 /***** ROUTES *****/
 
+// GET THE QUESTIONS
 router.get('/Welcome', (req, res) => {
+  res.json(Questions.find().then(Questions => res.json(Questions)));
+});
+
+// POST THE ANSWERS
+router.post('/Success', (req, res) => {
+  const answers = req.body.answers;
+
+  if (answers === null) {
+    let msg = `No answers has been provided!`;
+
+    console.error(msg);
+    res.status(401).json({ msg: msg });
+    return;
+  }
+
   res.json(Questions.find().then(Questions => res.json(Questions)));
 });
