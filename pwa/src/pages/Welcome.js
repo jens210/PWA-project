@@ -25,7 +25,7 @@ class Welcome extends Component {
             </button>
           </div>
         </form>
-        <a href="./Questions">To Questionaire</a>
+        <a href="./Form">To Questionaire</a>
       </div>
     );
   }

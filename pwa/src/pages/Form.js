@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Boolean from './components/boolean';
+import Questions from '../components/Questions';
 
-export default class Questions extends Component {
+export default class Form extends Component {
   constructor() {
     // constructor(props) {
     super();
@@ -14,7 +14,6 @@ export default class Questions extends Component {
 
   componentDidMount() {
     this.fetchQuestions();
-    console.log(this.state.questions);
   }
   // FETCH
   fetchQuestions() {
@@ -29,20 +28,14 @@ export default class Questions extends Component {
   render() {
     const timestamp = new Date().toLocaleString();
 
-    const questions = this.state.questions;
+    // const questions = this.state.questions;
     return (
       <div className="container">
         <p>{timestamp}</p>
-        <h1 className="text-center">Questions ?!{this.props.handleInput}</h1>
+        <h1 className="text-center">Questions</h1>
 
         <form action="submit">
-          {questions.map(q =>
-            q.type === 'Boolean' ? (
-              <Boolean questions={this.state.questions} />
-            ) : (
-              <p>Not Bool</p>
-            )
-          )}
+          <Questions questions={this.state.questions} />
           {/*TODO
           Move this button to the question component form. Then call the add function
           Remove Disabled

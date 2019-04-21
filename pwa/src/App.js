@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Welcome from './Welcome';
-import Questions from './Questions';
-import Succes from './Succes';
-import NotFound from './NotFound';
+import Welcome from './pages/Welcome';
+import Form from './pages/Form';
+import Succes from './pages/Succes';
+import NotFound from './pages/NotFound';
 
 class App extends Component {
   constructor(props) {
@@ -57,7 +57,7 @@ class App extends Component {
             />
             {/*TODO route for question component */}
             {/* ROUTE QUESTIONS */}
-            <Route exact path={'/Questions'} render={props => <Questions />} />
+            <Route exact path={'/Form'} render={props => <Form />} />
 
             {/* ROUTE SUCCESS */}
             <Route exact path={'/Succes'} render={props => <Succes />} />
