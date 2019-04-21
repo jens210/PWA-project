@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Succes from "./Succes"
-import Welcome from "./Welcome"
-import NotFound from "./NotFound"
+import Welcome from './Welcome';
+import Questions from './Questions';
+import Succes from './Succes';
+import NotFound from './NotFound';
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
     this.onChange = this.onChange.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
 
+  API_URL = 'http://localhost:8080/';
+  // API_URL = 'http://localhost:8080/questions';
+
   // TODO
   handleInput(event) {
     event.preventDefault();
-    console.log("Go to questionaire component and save the name")
+    console.log('Go to questionaire component and save the name');
     /*
     this.addQuestionaire(
     );*/
@@ -40,19 +43,28 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
-          {/*TODO Move this button to the question component form. Then call the add function*/}
-          <Link to={`/Succes`}><button type="submit">Send questionaire</button></Link>
+          <Switch>
+            {/* ROUTE WELCOME */}
+            <Route
+              exact
+              path={'/'}
+              render={props => (
+                <Welcome
+                  onChange={this.onChange}
+                  handleInput={this.handleInput}
+                />
+              )}
+            />
+            {/*TODO route for question component */}
+            {/* ROUTE QUESTIONS */}
+            <Route exact path={'/Questions'} render={props => <Questions />} />
+
+            {/* ROUTE SUCCESS */}
+            <Route exact path={'/Succes'} render={props => <Succes />} />
+
+            <Route component={NotFound} />
+          </Switch>
         </div>
-        <Switch>
-          <Route exact path={'/'} render={(props) =>
-            <Welcome onChange={this.onChange} handleInput={this.handleInput} />}
-          />
-          <Route exact path={'/Succes'} render={(props) => <Succes />} />
-
-          {/*TODO route for question component */}
-
-          <Route component={NotFound} />
-        </Switch>
       </Router>
     );
   }
