@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Welcome from './pages/Welcome';
-import Form from './pages/Form';
+import Questionnaire from './pages/Questionnaire';
 import Succes from './pages/Succes';
 import NotFound from './pages/NotFound';
 
@@ -14,7 +14,7 @@ class App extends Component {
     this.handleInput = this.handleInput.bind(this);
   }
 
-  API_URL = 'http://localhost:8080/';
+  API_URL = 'http://localhost:8080/answers';
   // API_URL = 'http://localhost:8080/questions';
 
   // TODO
@@ -57,7 +57,7 @@ class App extends Component {
             />
             {/*TODO route for question component */}
             {/* ROUTE QUESTIONS */}
-            <Route exact path={'/Form'} render={props => <Form />} />
+            <Route exact path={'/Questionnaire'} render={props => <Questionnaire {...props} /> } />
 
             {/* ROUTE SUCCESS */}
             <Route exact path={'/Succes'} render={props => <Succes />} />

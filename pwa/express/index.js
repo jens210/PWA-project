@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 
 // Establishes the connection to the database
 const mongoURI =
-  'mongodb+srv://admin:admin@hoima-dsbni.mongodb.net/questionnaire?retryWrites=true';
+  'mongodb+srv://admin:admin@hoima-dsbni.mongodb.net/questionnaire?retryWrites=true'; // change me
 // const mongoURI = process.env.REACT_APP_MONGO;
 const timestamp = new Date().toLocaleTimeString();
 const db = mongoURI;
@@ -56,35 +56,64 @@ mongoose
   )
   .catch(err => console.error(`${'\n'}❌ ❌ ❌  CONNECTION ERROR: `, err));
 
-const questionnaireSchema = new mongoose.Schema({
-  order: Number,
-  title: String,
-  type: String,
-  required: Boolean,
+const answerSchema = new mongoose.Schema({
+  nickname: { type: String, required: true },
+  q1: { type: Number, required: true },
+  q2: { type: Boolean, required: true },
+  q3: { type: Boolean, required: true },
+  q4: { type: Boolean, required: true },
+  q5: {
+    answerCheck: { type: Boolean, required: true },
+    details: String
+  },
+  q6: {
+    answerCheck: { type: Boolean, required: true },
+    details: String
+  },
+  q7: { type: Boolean, required: true },
+  q8: { type: Boolean, required: true },
+  q9: {
+    answerCheck: { type: Boolean, required: true },
+    details: String
+  }
 });
 
 // Questionnaire Model
-const Questions = mongoose.model('questions', questionnaireSchema, 'questions');
+const Answer = mongoose.model('Answer', answerSchema);
 
 /***** DATA *****/
 /***** ROUTES *****/
 /***** ROUTES *****/
 
 // GET THE QUESTIONS
-app.get('/', (req, res) => {
-  Questions.find({}, (err, Questions) => res.json(Questions));
+app.get('/answers', (req, res) => {
+  Answer.find({}, (err, Answer) => res.json(Answer));
 });
 
-// TODO: POST THE ANSWERS
-// TODO A check on last ID will not be secure
+
+// POST
 app.post('/answers', (req, res) => {
-  const answers = req.body.answers;
+  let newAnswer = new Answer({
+    nickname: req.body.nickname,
+    q1: req.body.q1,
+    q2: req.body.q2,
+    q3: req.body.q3,
+    q4: req.body.q4,
+    q5: req.body.q5,
+    q6: req.body.q6,
+    q7: req.body.q7,
+    q8: req.body.q8,
+    q9: req.body.q9
 
-  if (answers.length <= 0) {
-    let msg = `No answers has been provided!`;
-
-    console.error(msg);
-    res.status(401).json({ msg: msg });
-    return;
+  });
+  if (!newAnswer.nickname || !newAnswer.q1 || !newAnswer.q2 ||
+    !newAnswer.q3 || !newAnswer.q4 || !newAnswer.q5 || !newAnswer.q6 ||
+    !newAnswer.q7 || !newAnswer.q8 || !newAnswer.q9) {
+    return res.status(400).json({ msg: 'Information missing' });
   }
+
+  newAnswer
+    .save()
+    .then(result => res.json({ msg: `Answer posted: ${req.body.nickname}` }))
+    .catch(err => console.log(err));
 });

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Welcome extends Component {
   render() {
@@ -25,7 +25,7 @@ class Welcome extends Component {
             </button>
           </div>
         </form>
-        <a href="./Form">To Questionaire</a>
+        <Link to={`/Questionnaire`}> test</Link>
       </div>
     );
   }

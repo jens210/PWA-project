@@ -35,7 +35,7 @@ export default class Form extends Component {
         <h1 className="text-center">Questions</h1>
 
         <form action="submit">
-          <Questions questions={this.state.questions} />
+          <Questionnaire questionnaire={this.state.questionnaire} />
           {/*TODO
           Move this button to the question component form. Then call the add function
           Remove Disabled
