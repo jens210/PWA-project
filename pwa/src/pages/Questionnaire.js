@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import '../styles.css';
 
@@ -175,7 +175,7 @@ class Questionnaire extends Component {
                 <div className="check" />
               </label>
             </div>
-            {this.props.answers.q5 === 'true' ? <Q5detail /> : null}
+            {this.props.answers.q5 === 'true' ? <Q5detail  onChange={this.props.onChange} /> : null}
           </div>
           <div className="question" id="Q6">
             <p>
@@ -212,7 +212,7 @@ class Questionnaire extends Component {
                 <div className="check" />
               </label>
             </div>
-            <Q6detail onChange={this.props.onChange} />
+            {this.props.answers.q6 === 'true' ? <Q6detail  onChange={this.props.onChange} /> : null}
           </div>
           <div className="question" id="Q7">
             <p>Did you get a new piercing, tattoo, or similar?</p>
@@ -315,7 +315,7 @@ class Questionnaire extends Component {
                 <div className="check" />
               </label>
             </div>
-            <Q9detail onChange={this.props.onChange} />
+            {this.props.answers.q9 === 'true' ? <Q9detail  onChange={this.props.onChange} /> : null}
           </div>
           <button
             className="next"

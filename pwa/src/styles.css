@@ -70,6 +70,10 @@ body {
   margin-left: 0.5em;
 }
 
+.question_detail_label {
+  text-align: center;
+}
+
 @media only screen and (min-width: 768px) {
   .question{
     padding: 6em 0 3em 0;

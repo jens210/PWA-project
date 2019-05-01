@@ -67,45 +67,45 @@ const answerSchema = new mongoose.Schema({
     required: true,
   },
   q2: {
-    type: Boolean,
+    type: String,
     required: true,
   },
   q3: {
-    type: Boolean,
+    type: String,
     required: true,
   },
   q4: {
-    type: Boolean,
+    type: String,
     required: true,
   },
   q5: {
-    answerCheck: {
-      type: Boolean,
+      type: String,
       required: true,
-    },
-    details: String,
+  },
+  q5_detail: {
+    type: String
   },
   q6: {
-    answerCheck: {
-      type: Boolean,
+      type: String,
       required: true,
-    },
-    details: String,
+  },
+  q6_detail: {
+    type: String
   },
   q7: {
-    type: Boolean,
+    type: String,
     required: true,
   },
   q8: {
-    type: Boolean,
+    type: String,
     required: true,
   },
   q9: {
-    answerCheck: {
-      type: Boolean,
+      type: String,
       required: true,
-    },
-    details: String,
+  },
+  q9_detail: {
+    type: String
   },
 });
 
