@@ -1,30 +1,44 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import '../styles.css';
+
+import Q5detail from './Q5detail';
+import Q6detail from './Q6detail';
+import Q9detail from './Q9detail';
 
 class Questionnaire extends Component {
   constructor(props) {
     super(props);
 
     this.state = { 
-      nickname: this.props.nickname,
-      q2: null,
+      nickname: this.props.nickname
      };
   }
 
-  handleRadioChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  }
-
+//   var function = str2bool(value) {
+//     if (value && typeof value === 'string') {
+//       if (value.toLowerCase() === "true") return true;
+//       if (value.toLowerCase() === "false") return false;
+//     }
+//     return value;
+//  }
 
   render() {
     return (
       <div className="container">
-    <form>
+    <form onSubmit={this.handleSubmit}>
       <div className="question" id="Q1">
         <p>Number of hours since last release</p>
-        <input className="question_input" data-msg-required="Write number of hours" required="required" type="text" id="Q1_detail" placeholder="00"/>
+        <input 
+          className="question_input" 
+          data-msg-required="Write number of hours" 
+          required="required" 
+          type="text" 
+          name="q1"
+          id="Q1_detail" 
+          placeholder="00"
+          onChange={this.props.onChange}/>
       </div>
       <div className="question" id="Q2">
         <p>Did you have a fever and/or did you visit a doctor?</p>
@@ -37,8 +51,8 @@ class Questionnaire extends Component {
             type="radio" 
             name="q2"
             value="true" 
-            checked={this.state.q2 === "true"}
             onChange={this.props.onChange}
+            checked={this.state.q2 === "true"}
             />
             <div className="check"></div>
           </label>
@@ -50,8 +64,8 @@ class Questionnaire extends Component {
             type="radio" 
             name="q2" 
             value="false" 
-            checked={this.state.q2 === "false"}
             onChange={this.props.onChange}
+            checked={this.state.q2 === "false"}
             />
             <div className="check"></div>
           </label>
@@ -149,10 +163,7 @@ class Questionnaire extends Component {
             <div className="check"></div>
           </label>
         </div>
-        <div className="question_detail">
-          <label className="question_detail_label" htmlFor="Q5_detail">Where to?</label>
-          <input className="question_input" data-msg-required="Write down your travel destination" required="required" type="text" id="Q5_detail" />
-        </div>
+        {(this.state.q5 === "true") ? <Q5detail /> : null}
       </div>
       <div className="question" id="Q6">
         <p>Have you recently been traveling outide the country, that you did not inform about?</p>
@@ -184,10 +195,7 @@ class Questionnaire extends Component {
             <div className="check"></div>
           </label>
         </div>
-        <div className="question_detail">
-          <label className="question_detail_label" htmlFor="Q6_detail">Where to?</label>
-          <input className="question_input" data-msg-required="Write down your travel destination" required="required" type="text" id="Q6_detail" />
-        </div>
+        <Q6detail onChange={this.props.onChange}/>
       </div>
       <div className="question" id="Q7">
         <p>Did you get a new piercing, tattoo, or similar?</p>
@@ -281,11 +289,13 @@ class Questionnaire extends Component {
             <div className="check"></div>
           </label>
         </div>
-        <div className="question_detail">
-          <label className="question_detail_label" htmlFor="Q9_detail">Which ones?</label>
-          <input className="question_input" data-msg-required="Write down the narcotics" required="required" type="text" id="Q9_detail" />
-        </div>
+        <Q9detail onChange={this.props.onChange}/>
       </div>
+      <button className="next" type="submit">  
+          <Link to={{
+            pathname: `/Succes`, 
+          }}> Send answers</Link> 
+        </button>
     </form>
   </div>
     );

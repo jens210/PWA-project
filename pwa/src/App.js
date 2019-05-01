@@ -70,6 +70,7 @@ class App extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
+    //console.log(event.target.value === "true");
   }
 
   render() {
