@@ -49,7 +49,7 @@ class App extends Component {
   // TODO
   handleInput(event) {
     event.preventDefault();
-    console.log('Go to questionaire component and save the name');
+    //console.log('Go to questionaire component and save the name');
     this.addQuestionaire(
       this.state.nickname,
       this.state.q1,
