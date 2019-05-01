@@ -19,7 +19,21 @@ class App extends Component {
 
   API_URL = 'http://localhost:8080/answers';
 
-  addQuestionaire(nickname, q1, q2, q3, q4, q5, q6, q7, q8, q9) {
+  addQuestionaire(
+    nickname,
+    q1,
+    q2,
+    q3,
+    q4,
+    q5,
+    q5_detail,
+    q6,
+    q6_detail,
+    q7,
+    q8,
+    q9,
+    q9_detail
+  ) {
     const API_URL = 'http://localhost:8080/answers';
     // Posting JSON to API
     fetch(API_URL, {
@@ -31,10 +45,13 @@ class App extends Component {
         q3: q3,
         q4: q4,
         q5: q5,
+        q5_detail: q5_detail,
         q6: q6,
+        q6_detail: q6_detail,
         q7: q7,
         q8: q8,
         q9: q9,
+        q9_detail: q9_detail,
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -58,10 +75,13 @@ class App extends Component {
       this.state.q3,
       this.state.q4,
       this.state.q5,
+      this.state.q5_detail,
       this.state.q6,
+      this.state.q6_detail,
       this.state.q7,
       this.state.q8,
-      this.state.q9
+      this.state.q9,
+      this.state.q9_detail
     );
   }
 
