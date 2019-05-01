@@ -13,8 +13,8 @@ class Q5detail extends Component {
         <label className="question_detail_label">Where to?</label>
         <input 
           className="question_input" 
-          data-msg-required="Write down your travel destination" 
-          required="required" 
+          // data-msg-required="Write down your travel destination" 
+          // required="required" 
           type="text"
           name="q5_detail"
           id="q5_detail"

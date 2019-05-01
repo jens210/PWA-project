@@ -1,17 +1,18 @@
+/**** External libraries ****/
 const express = require('express');
-const app = express();
-const router = express.Router();
-const mongoose = require('mongoose');
-const port = 8080;
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const morgan = require('morgan'); // Log all HTTP requests to the console
-
-// Telling the console that the server is running on port 8080
-app.listen(port, () => console.log(`SurveyFive listening on port ${port}!`));
+require('dotenv').config();
+/***** CONFIGURATION *****/
+const port = process.env.PORT || 8080;
+const app = express();
+// const router = express.Router();
 
 app.use(bodyParser.json()); // Make sure all json data is parsed
 app.use(morgan('combined')); // Log all requests to the console
 
+/**** CONFIGURATION ****/
 /***** MIDDLEWARE *****/
 
 // Additional headers to avoid triggering CORS security errors in the browser
@@ -38,9 +39,8 @@ app.use((req, res, next) => {
 /***** DATA *****/
 
 // Establishes the connection to the database
-const mongoURI =
-  'mongodb+srv://admin:admin@hoima-dsbni.mongodb.net/questionnaire?retryWrites=true'; // change me
-// const mongoURI = process.env.REACT_APP_MONGO;
+// const mongoURI = 'mongodb+srv://admin:admin@hoima-dsbni.mongodb.net/questionnaire?retryWrites=true'; // change me
+const mongoURI = process.env.REACT_APP_MONGO;
 const timestamp = new Date().toLocaleTimeString();
 const db = mongoURI;
 
@@ -57,25 +57,56 @@ mongoose
   .catch(err => console.error(`${'\n'}❌ ❌ ❌  CONNECTION ERROR: `, err));
 
 const answerSchema = new mongoose.Schema({
-  nickname: { type: String, required: true },
-  q1: { type: Number, required: true },
-  q2: { type: Boolean, required: true },
-  q3: { type: Boolean, required: true },
-  q4: { type: Boolean, required: true },
+  nickname: {
+    type: String,
+    required: true,
+  },
+  date: String,
+  q1: {
+    type: Number,
+    required: true,
+  },
+  q2: {
+    type: Boolean,
+    required: true,
+  },
+  q3: {
+    type: Boolean,
+    required: true,
+  },
+  q4: {
+    type: Boolean,
+    required: true,
+  },
   q5: {
-    answerCheck: { type: Boolean, required: true },
-    details: String
+    answerCheck: {
+      type: Boolean,
+      required: true,
+    },
+    details: String,
   },
   q6: {
-    answerCheck: { type: Boolean, required: true },
-    details: String
+    answerCheck: {
+      type: Boolean,
+      required: true,
+    },
+    details: String,
   },
-  q7: { type: Boolean, required: true },
-  q8: { type: Boolean, required: true },
+  q7: {
+    type: Boolean,
+    required: true,
+  },
+  q8: {
+    type: Boolean,
+    required: true,
+  },
   q9: {
-    answerCheck: { type: Boolean, required: true },
-    details: String
-  }
+    answerCheck: {
+      type: Boolean,
+      required: true,
+    },
+    details: String,
+  },
 });
 
 // Questionnaire Model
@@ -84,17 +115,18 @@ const Answer = mongoose.model('Answer', answerSchema);
 /***** DATA *****/
 /***** ROUTES *****/
 /***** ROUTES *****/
-
-// GET THE QUESTIONS
+// GET
+// GET
 app.get('/answers', (req, res) => {
   Answer.find({}, (err, Answer) => res.json(Answer));
 });
 
-
+// POST
 // POST
 app.post('/answers', (req, res) => {
   let newAnswer = new Answer({
     nickname: req.body.nickname,
+    date: timestamp,
     q1: req.body.q1,
     q2: req.body.q2,
     q3: req.body.q3,
@@ -103,12 +135,20 @@ app.post('/answers', (req, res) => {
     q6: req.body.q6,
     q7: req.body.q7,
     q8: req.body.q8,
-    q9: req.body.q9
-
+    q9: req.body.q9,
   });
-  if (!newAnswer.nickname || !newAnswer.q1 || !newAnswer.q2 ||
-    !newAnswer.q3 || !newAnswer.q4 || !newAnswer.q5 || !newAnswer.q6 ||
-    !newAnswer.q7 || !newAnswer.q8 || !newAnswer.q9) {
+  if (
+    !newAnswer.nickname ||
+    !newAnswer.q1 ||
+    !newAnswer.q2 ||
+    !newAnswer.q3 ||
+    !newAnswer.q4 ||
+    !newAnswer.q5 ||
+    !newAnswer.q6 ||
+    !newAnswer.q7 ||
+    !newAnswer.q8 ||
+    !newAnswer.q9
+  ) {
     return res.status(400).json({ msg: 'Information missing' });
   }
 
@@ -117,3 +157,6 @@ app.post('/answers', (req, res) => {
     .then(result => res.json({ msg: `Answer posted: ${req.body.nickname}` }))
     .catch(err => console.log(err));
 });
+
+// Telling the console that the server is running on port 8080
+app.listen(port, () => console.log(`SurveyFive listening on port ${port}!`));

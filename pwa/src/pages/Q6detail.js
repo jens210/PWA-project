@@ -13,8 +13,8 @@ class Q6detail extends Component {
         <label className="question_detail_label" htmlFor="Q6_detail">Where to?</label>
         <input 
           className="question_input" 
-          data-msg-required="Write down your travel destination" 
-          required="required" 
+          // data-msg-required="Write down your travel destination" 
+          // required="required" 
           type="text" 
           name="q6_detail"
           id="q6_detail" 

@@ -13,8 +13,8 @@ class Q6detail extends Component {
         <label className="question_detail_label" htmlFor="Q9_detail">Which ones?</label>
         <input 
           className="question_input" 
-          data-msg-required="Write down the narcotics" 
-          required="required" 
+          // data-msg-required="Write down the narcotics" 
+          // required="required" 
           type="text" 
           name="q9_detail"
           id="q9_detail" 
