@@ -1,163 +1,301 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import '../styles.css';
 
+import Q5detail from './Q5detail';
+import Q6detail from './Q6detail';
+import Q9detail from './Q9detail';
+
 class Questionnaire extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { 
+      nickname: this.props.nickname
+     };
+  }
+
+//   var function = str2bool(value) {
+//     if (value && typeof value === 'string') {
+//       if (value.toLowerCase() === "true") return true;
+//       if (value.toLowerCase() === "false") return false;
+//     }
+//     return value;
+//  }
+
   render() {
     return (
       <div className="container">
-    <form>
+    <form onSubmit={this.handleSubmit}>
       <div className="question" id="Q1">
         <p>Number of hours since last release</p>
-        <input className="question_input" data-msg-required="Write number of hours" required="required" type="text" id="Q1_detail" placeholder="00"/>
+        <input 
+          className="question_input" 
+          data-msg-required="Write number of hours" 
+          required="required" 
+          type="text" 
+          name="q1"
+          id="Q1_detail" 
+          placeholder="00"
+          onChange={this.props.onChange}/>
       </div>
       <div className="question" id="Q2">
         <p>Did you have a fever and/or did you visit a doctor?</p>
-        <ul>
-          <li>
-            <label className="question_option_container" htmlFor="Q2_yes">YES
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q2_yes" />
-              <div className="check"></div>
-            </label>
-          </li>
-          <li>
-            <label className="question_option_container" htmlFor="Q2_no">NO
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q2_no" />
-              <div className="check"></div>
-            </label>
-          </li>
-        </ul>
+        <div className="radio">
+          <label className="question_option_container">YES
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q2"
+            value="true" 
+            onChange={this.props.onChange}
+            checked={this.state.q2 === "true"}
+            />
+            <div className="check"></div>
+          </label>
+          <label className="question_option_container">NO
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q2" 
+            value="false" 
+            onChange={this.props.onChange}
+            checked={this.state.q2 === "false"}
+            />
+            <div className="check"></div>
+          </label>
+        </div>
       </div>
       <div className="question" id="Q3">
         <p>Did you have an unprotected sex with a new sexual partner?</p>
-        <ul>
-          <li>
-            <label className="question_option_container" htmlFor="Q3_yes">YES
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q3_yes" />
-              <div className="check"></div>
-            </label>
-          </li>
-          <li>
-            <label className="question_option_container" htmlFor="Q3_no">NO
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q3_no" />
-              <div className="check"></div>
-            </label>
-          </li>
-        </ul>
+        <div className="radio">
+          <label className="question_option_container">YES
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q3"
+            value="true" 
+            checked={this.state.q3 === "true"}
+            onChange={this.props.onChange}
+            />
+            <div className="check"></div>
+          </label>
+          <label className="question_option_container">NO
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q3" 
+            value="false" 
+            checked={this.state.q3 === "false"}
+            onChange={this.props.onChange}
+            />
+            <div className="check"></div>
+          </label>
+        </div>
       </div>
       <div className="question" id="Q4">
         <p>Did you have sex with a prostitute since the last donation?</p>
-        <ul>
-          <li>
-            <label className="question_option_container" htmlFor="Q4_yes">YES
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q4_yes" />
-              <div className="check"></div>
-            </label>
-          </li>
-          <li>
-            <label className="question_option_container" htmlFor="Q4_no">NO
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q4_no" />
-              <div className="check"></div>
-            </label>
-          </li>
-        </ul>
+        <div className="radio">
+          <label className="question_option_container">YES
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q4"
+            value="true" 
+            checked={this.state.q4 === "true"}
+            onChange={this.props.onChange}
+            />
+            <div className="check"></div>
+          </label>
+          <label className="question_option_container">NO
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q4" 
+            value="false" 
+            checked={this.state.q4 === "false"}
+            onChange={this.props.onChange}
+            />
+            <div className="check"></div>
+          </label>
+        </div>
       </div>
       <div className="question" id="Q5">
         <p>Do you plan to travel in near future?</p>
-        <ul>
-          <li>
-            <label className="question_option_container" htmlFor="Q5_yes">YES
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q5_yes" />
-              <div className="check"></div>
-            </label>
-          </li>
-          <li>
-            <label className="question_option_container" htmlFor="Q5_no">NO
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q5_no" />
-              <div className="check"></div>
-            </label>
-          </li>
-        </ul>
-        <div className="question_detail">
-          <label className="question_detail_label" htmlFor="Q5_detail">Where to?</label>
-          <input className="question_input" data-msg-required="Write down your travel destination" required="required" type="text" id="Q5_detail" />
+        <div className="radio">
+          <label className="question_option_container">YES
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q5"
+            value="true" 
+            checked={this.state.q5 === "true"}
+            onChange={this.props.onChange}
+            />
+            <div className="check"></div>
+          </label>
+          <label className="question_option_container">NO
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q5" 
+            value="false" 
+            checked={this.state.q5 === "false"}
+            onChange={this.props.onChange}
+            />
+            <div className="check"></div>
+          </label>
         </div>
+        {(this.state.q5 === "true") ? <Q5detail /> : null}
       </div>
       <div className="question" id="Q6">
         <p>Have you recently been traveling outide the country, that you did not inform about?</p>
-        <ul>
-          <li>
-            <label className="question_option_container" htmlFor="Q6_yes">YES
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q6_yes" />
-              <div className="check"></div>
-            </label>
-          </li>
-          <li>
-            <label className="question_option_container" htmlFor="Q6_no">NO
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q6_no" />
-              <div className="check"></div>
-            </label>
-          </li>
-        </ul>
-        <div className="question_detail">
-          <label className="question_detail_label" htmlFor="Q6_detail">Where to?</label>
-          <input className="question_input" data-msg-required="Write down your travel destination" required="required" type="text" id="Q6_detail" />
+        <div className="radio">
+          <label className="question_option_container">YES
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q6"
+            value="true" 
+            checked={this.state.q6 === "true"}
+            onChange={this.props.onChange}
+            />
+            <div className="check"></div>
+          </label>
+          <label className="question_option_container">NO
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q6" 
+            value="false" 
+            checked={this.state.q6 === "false"}
+            onChange={this.props.onChange}
+            />
+            <div className="check"></div>
+          </label>
         </div>
+        <Q6detail onChange={this.props.onChange}/>
       </div>
       <div className="question" id="Q7">
         <p>Did you get a new piercing, tattoo, or similar?</p>
-        <ul>
-          <li>
-            <label className="question_option_container" htmlFor="Q7_yes">YES
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q7_yes" />
-              <div className="check"></div>
-            </label>
-          </li>
-          <li>
-            <label className="question_option_container" htmlFor="Q7_no">NO
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q7_no" />
-              <div className="check"></div>
-            </label>
-          </li>
-        </ul>
+        <div className="radio">
+          <label className="question_option_container">YES
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q7"
+            value="true" 
+            checked={this.state.q7 === "true"}
+            onChange={this.props.onChange}
+            />
+            <div className="check"></div>
+          </label>
+          <label className="question_option_container">NO
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q7" 
+            value="false" 
+            checked={this.state.q7 === "false"}
+            onChange={this.props.onChange}
+            />
+            <div className="check"></div>
+          </label>
+        </div>
       </div>
       <div className="question" id="Q8">
         <p>Do you have a genital wart, vaginal epithelium or a wound on your genitals?</p>
-        <ul>
-          <li>
-            <label className="question_option_container" htmlFor="Q8_yes">YES
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q8_yes" />
-              <div className="check"></div>
-            </label>
-          </li>
-          <li>
-            <label className="question_option_container" htmlFor="Q8_no">NO
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q8_no" />
-              <div className="check"></div>
-            </label>
-          </li>
-        </ul>
+        <div className="radio">
+          <label className="question_option_container">YES
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q8"
+            value="true" 
+            checked={this.state.q8 === "true"}
+            onChange={this.props.onChange}
+            />
+            <div className="check"></div>
+          </label>
+          <label className="question_option_container">NO
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q8" 
+            value="false" 
+            checked={this.state.q8 === "false"}
+            onChange={this.props.onChange}
+            />
+            <div className="check"></div>
+          </label>
+        </div>
       </div>
       <div className="question" id="Q9">
         <p>Did you take any narcotics since the last donation?</p>
-        <ul>
-          <li>
-            <label className="question_option_container" htmlFor="Q9_yes">YES
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q9_yes" />
-              <div className="check"></div>
-            </label>
-          </li>
-          <li>
-            <label className="question_option_container" htmlFor="Q9_no">NO
-              <input className="question_option_input" data-msg-required="Choose one of the options" required="required" type="radio" id="Q9_no" />
-              <div className="check"></div>
-            </label>
-          </li>
-        </ul>
-        <div className="question_detail">
-          <label className="question_detail_label" htmlFor="Q9_detail">Which ones?</label>
-          <input className="question_input" data-msg-required="Write down the narcotics" required="required" type="text" id="Q9_detail" />
+        <div className="radio">
+          <label className="question_option_container">YES
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q9"
+            value="true" 
+            checked={this.state.q9 === "true"}
+            onChange={this.props.onChange}
+            />
+            <div className="check"></div>
+          </label>
+          <label className="question_option_container">NO
+            <input 
+            className="question_option_input" 
+            data-msg-required="Choose one of the options" 
+            required="required" 
+            type="radio" 
+            name="q9" 
+            value="false" 
+            checked={this.state.q9 === "false"}
+            onChange={this.props.onChange}
+            />
+            <div className="check"></div>
+          </label>
         </div>
+        <Q9detail onChange={this.props.onChange}/>
       </div>
+      <button className="next" type="submit">  
+          <Link to={{
+            pathname: `/Succes`, 
+          }}> Send answers</Link> 
+        </button>
     </form>
   </div>
     );
