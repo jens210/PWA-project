@@ -63,7 +63,6 @@ class App extends Component {
       this.state.q8,
       this.state.q9
     );
-    console.log('handleInput: ' + event);
   }
 
   // TODO
