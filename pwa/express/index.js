@@ -59,50 +59,50 @@ mongoose
 const answerSchema = new mongoose.Schema({
   nickname: {
     type: String,
-    required: true,
+    // required: true,
   },
   date: String,
   q1: {
     type: Number,
-    required: true,
+    // required: true,
   },
   q2: {
     type: String,
-    required: true,
+    // required: true,
   },
   q3: {
     type: String,
-    required: true,
+    // required: true,
   },
   q4: {
     type: String,
-    required: true,
+    // required: true,
   },
   q5: {
       type: String,
-      required: true,
+      // required: true,
   },
   q5_detail: {
     type: String
   },
   q6: {
       type: String,
-      required: true,
+      // required: true,
   },
   q6_detail: {
     type: String
   },
   q7: {
     type: String,
-    required: true,
+    // required: true,
   },
   q8: {
     type: String,
-    required: true,
+    // required: true,
   },
   q9: {
       type: String,
-      required: true,
+      // required: true,
   },
   q9_detail: {
     type: String
