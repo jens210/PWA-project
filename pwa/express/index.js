@@ -125,6 +125,7 @@ app.get('/answers', (req, res) => {
 // POST
 app.post('/answers', (req, res) => {
   let newAnswer = new Answer({
+    // why not use req.body instead?
     nickname: req.body.nickname,
     date: timestamp,
     q1: req.body.q1,
@@ -137,20 +138,20 @@ app.post('/answers', (req, res) => {
     q8: req.body.q8,
     q9: req.body.q9,
   });
-  if (
-    !newAnswer.nickname ||
-    !newAnswer.q1 ||
-    !newAnswer.q2 ||
-    !newAnswer.q3 ||
-    !newAnswer.q4 ||
-    !newAnswer.q5 ||
-    !newAnswer.q6 ||
-    !newAnswer.q7 ||
-    !newAnswer.q8 ||
-    !newAnswer.q9
-  ) {
-    return res.status(400).json({ msg: 'Information missing' });
-  }
+  // if (
+  //   !newAnswer.nickname ||
+  //   !newAnswer.q1 ||
+  //   !newAnswer.q2 ||
+  //   !newAnswer.q3 ||
+  //   !newAnswer.q4 ||
+  //   !newAnswer.q5 ||
+  //   !newAnswer.q6 ||
+  //   !newAnswer.q7 ||
+  //   !newAnswer.q8 ||
+  //   !newAnswer.q9
+  // ) {
+  //   return res.status(400).json({ msg: 'Information missing' });
+  // }
 
   newAnswer
     .save()
