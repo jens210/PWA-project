@@ -133,10 +133,13 @@ app.post('/answers', (req, res) => {
     q3: req.body.q3,
     q4: req.body.q4,
     q5: req.body.q5,
+    q5_detail: req.body.q5_detail,
     q6: req.body.q6,
+    q6_detail: req.body.q6_detail,
     q7: req.body.q7,
     q8: req.body.q8,
     q9: req.body.q9,
+    q9_detail: req.body.q9_detail
   });
   // if (
   //   !newAnswer.nickname ||
