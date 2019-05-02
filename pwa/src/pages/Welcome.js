@@ -11,7 +11,7 @@ class Welcome extends Component {
   render() {
     return (
       <div className="container">
-        <form onSubmit={this.props.handleInput}>
+        <form>
           <h1 className="text-center"> Welcome </h1>
           <div className="form-group">
             <input

@@ -17,8 +17,6 @@ class App extends Component {
     this.addQuestionaire = this.addQuestionaire.bind(this);
   }
 
-  API_URL = 'http://localhost:8080/answers';
-
   addQuestionaire(
     nickname,
     q1,
@@ -34,7 +32,7 @@ class App extends Component {
     q9,
     q9_detail
   ) {
-    const API_URL = 'http://localhost:8080/answers';
+    const API_URL = process.env.REACT_APP_URL;
     // Posting JSON to API
     fetch(API_URL, {
       method: 'POST',
@@ -64,7 +62,6 @@ class App extends Component {
       });
   }
 
-  // TODO
   handleInput(event) {
     event.preventDefault();
     //console.log('Go to questionaire component and save the name');

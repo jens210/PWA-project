@@ -41,7 +41,7 @@ app.use((req, res, next) => {
 // Establishes the connection to the database
 // const mongoURI = 'mongodb+srv://admin:admin@hoima-dsbni.mongodb.net/questionnaire?retryWrites=true'; // change me
 const mongoURI = process.env.REACT_APP_MONGO;
-const timestamp = new Date().toLocaleTimeString();
+const timestamp = new Date().toLocaleDateString();
 const db = mongoURI;
 
 // Provides info on connection status
