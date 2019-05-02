@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const morgan = require('morgan'); // Log all HTTP requests to the console
+const path = require('path');
 require('dotenv').config();
 /***** CONFIGURATION *****/
 const port = process.env.PORT || 8080;
@@ -10,6 +11,7 @@ const app = express();
 // const router = express.Router();
 
 app.use(bodyParser.json()); // Make sure all json data is parsed
+app.use(express.static(path.join(__dirname, '../build')));
 app.use(morgan('combined')); // Log all requests to the console
 
 /**** CONFIGURATION ****/
