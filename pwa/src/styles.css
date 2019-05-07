@@ -114,3 +114,8 @@ body {
     margin-left: 2.5em;
   }
 }
+.button {
+  width: 90%;
+  min-height: 5vh;
+  font-size: 2rem;
+}

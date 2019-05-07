@@ -10,7 +10,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // answers: [],
+      answers: [],
+      success: false,
     };
     this.onChange = this.onChange.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -55,15 +56,35 @@ class App extends Component {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
+      .then(response => console.log(response.json))
       .then(response => response.json())
       .then(json => {
         console.log('Result of posting a new Questionaire:');
         console.log(json);
+      })
+      .then(updateSuccess => {
+        this.setState({ success: true });
       });
   }
 
   handleInput(event) {
     event.preventDefault();
+    this.setState({
+      nickname: 'jack',
+
+      q1: false,
+      q2: false,
+      q3: false,
+      q4: false,
+      q5: true,
+      q5_detail: 'Empty',
+      q6: true,
+      q6_detail: 'empty',
+      q7: false,
+      q8: false,
+      q9: true,
+      q9_detail: 'empty',
+    });
     this.addQuestionaire(
       this.state.nickname,
       this.state.q1,
