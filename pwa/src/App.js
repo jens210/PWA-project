@@ -3,19 +3,36 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Welcome from './pages/Welcome';
 import Questionnaire from './pages/Questionnaire';
-import Succes from './pages/Succes';
+import Success from './pages/Success';
 import NotFound from './pages/NotFound';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      answers: [],
+      // answers: [],
       success: false,
     };
     this.onChange = this.onChange.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.addQuestionaire = this.addQuestionaire.bind(this);
+  }
+  componentDidMount(){
+    this.setState({
+      nickname: 'jack2',
+      q1: false,
+      q2: false,
+      q3: false,
+      q4: false,
+      q5: true,
+      q5_detail: 'Empty',
+      q6: true,
+      q6_detail: 'empty',
+      q7: false,
+      q8: false,
+      q9: true,
+      q9_detail: 'empty',
+    });
   }
 
   addQuestionaire(
@@ -56,11 +73,11 @@ class App extends Component {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
-      .then(response => console.log(response.json))
+      // .then(response => console.log(response))
       .then(response => response.json())
       .then(json => {
         console.log('Result of posting a new Questionaire:');
-        console.log(json);
+    console.log(json);
       })
       .then(updateSuccess => {
         this.setState({ success: true });
@@ -69,22 +86,8 @@ class App extends Component {
 
   handleInput(event) {
     event.preventDefault();
-    this.setState({
-      nickname: 'jack',
 
-      q1: false,
-      q2: false,
-      q3: false,
-      q4: false,
-      q5: true,
-      q5_detail: 'Empty',
-      q6: true,
-      q6_detail: 'empty',
-      q7: false,
-      q8: false,
-      q9: true,
-      q9_detail: 'empty',
-    });
+
     this.addQuestionaire(
       this.state.nickname,
       this.state.q1,
@@ -140,13 +143,26 @@ class App extends Component {
                   onChange={this.onChange}
                   handleInput={this.handleInput}
                   answers={this.state}
+                  success={this.state.success}
+                  nickname={this.state.nickname}
                 />
               )}
             />
-
             {/* ROUTE SUCCESS */}
-            <Route exact path={'/Succes'} render={props => <Succes />} />
-
+            <Route
+              exact
+              path={'/Succes'}
+              render={props => (
+                <Success
+                  {...props}
+                  addQuestionaire={this.addQuestionaire}
+                  onChange={this.onChange}
+                  handleInput={this.handleInput}
+                  answers={this.state}
+                  success={this.state.success}
+                />
+              )}
+            />
             <Route component={NotFound} />
           </Switch>
         </div>

@@ -7,7 +7,7 @@ import '../styles.css';
 // import Q6detail from './Q6detail';
 // import Q9detail from './Q9detail';
 import Questions from './Questions';
-import Succes from './Succes';
+import Success from './Success';
 
 class Questionnaire extends Component {
   constructor(props) {
@@ -25,13 +25,16 @@ class Questionnaire extends Component {
   render() {
     return (
       <div className="container">
-        {this.state.success ? (
-          <Succes answers={this.props.answers} />
+        {this.props.success ? (
+          <Success answers={this.props.answers} />
         ) : (
-          <Questions answers={this.props.answers} nickname={this.props.nickname || 'Jason'}
-          addQuestionaire={this.props.addQuestionaire}
-          onChange={this.props.onChange}
-          handleInput={this.props.handleInput} />
+          <Questions
+            answers={this.props.answers}
+            nickname={this.props.nickname}
+            addQuestionaire={this.props.addQuestionaire}
+            onChange={this.props.onChange}
+            handleInput={this.props.handleInput}
+          />
         )}
       </div>
     );
