@@ -10,44 +10,34 @@ class Welcome extends Component {
 
   render() {
     return (
-        <form>
-          <h1 className="text-center"> Welcome </h1>
-          <h2 className="subtitle">
-            - We strongly encourage you to fill our this form before every visit
-          </h2>
-          <div className="form-group">
-            <input
-              name="nickname"
-              required
-              type="text"
-              className="form-control"
-              placeholder="Type your name"
-              onChange={this.props.onChange}
-            />
-            {/* <button
-              onClick={this.props.handleInput}
-              type="submit"
-              className="btn btn-primary"
-              to="./Questions"
-            >
-              Start Questionaire
-            </button> */}
-          </div>
-                 {/* <button className="next"> */}
+      <form>
+        <h1 className="text-center"> Welcome </h1>
+        <h2 className="subtitle">
+          - We strongly encourage you to fill our this form before every visit
+        </h2>
+        <div className="form-group">
+          <input
+            name="nickname"
+            required
+            type="text"
+            className="form-control"
+            placeholder="Type your name"
+            onChange={this.props.onChange}
+          />
+        </div>
 
-      {/*  </button> */}
-          <Link
-          className="button is-primary"
-            to={{
-              pathname: `/Questionnaire`,
-              state: { nickname: this.state.nickname },
-            }}
-          >
-            {' '}
-            Start questionnaire
-          </Link>
-        </form>
-
+        <Link
+          className="button btn btn-info is-primary"
+          to={{
+            pathname: `/Questionnaire`,
+            state: { nickname: this.state.nickname },
+          }}
+          disabled={this.props.nickname.length < 1 ? true : false}
+        >
+          {' '}
+          Start questionnaire
+        </Link>
+      </form>
     );
   }
 }
