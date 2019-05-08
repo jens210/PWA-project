@@ -18,7 +18,7 @@ class App extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.addQuestionaire = this.addQuestionaire.bind(this);
   }
-  componentDidMount(){
+  componentDidMount() {
     this.setState({
       nickname: 'jack2',
       q1: false,
@@ -78,7 +78,7 @@ class App extends Component {
       .then(response => response.json())
       .then(json => {
         console.log('Result of posting a new Questionaire:');
-    console.log(json);
+        console.log(json);
       })
       .then(updateSuccess => {
         this.setState({ success: true });
