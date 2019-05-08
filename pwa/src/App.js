@@ -131,7 +131,6 @@ class App extends Component {
                 />
               )}
             />
-            {/*TODO route for question component */}
             {/* ROUTE QUESTIONS */}
             <Route
               exact
