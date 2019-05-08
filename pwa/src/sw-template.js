@@ -28,11 +28,12 @@ if ('function' === typeof importScripts) {
             })
         );
 
-        // Background sync
+        // Background sync 
         const bgSyncPlugin = new workbox.backgroundSync.Plugin('myQueueName', {
             maxRetentionTime: 24 * 60 // Retry for max of 24 Hours
         });
 
+        // have a look at this https://developers.google.com/web/tools/workbox/modules/workbox-background-sync
         workbox.routing.registerRoute(
             /\/api\/.*\/*.json/,
             new workbox.strategies.NetworkOnly({
