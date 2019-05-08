@@ -164,5 +164,10 @@ app.post('/answers', (req, res) => {
     .catch(err => console.log(err));
 });
 
+// catch all
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, '../build', 'index.html'));
+});
+
 // Telling the console that the server is running on port 8080
 app.listen(port, () => console.log(`SurveyFive listening on port ${port}!`));
