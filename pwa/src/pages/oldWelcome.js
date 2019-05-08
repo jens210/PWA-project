@@ -10,8 +10,9 @@ class Welcome extends Component {
 
   render() {
     return (
+      <div className="container hero is-primary">
         <form>
-          <h1 className="text-center"> Welcome </h1>
+          <h1 className="title text-center"> Welcome </h1>
           <h2 className="subtitle">
             - We strongly encourage you to fill our this form before every visit
           </h2>
@@ -20,7 +21,7 @@ class Welcome extends Component {
               name="nickname"
               required
               type="text"
-              className="form-control"
+              className="form-control input"
               placeholder="Type your name"
               onChange={this.props.onChange}
             />
@@ -33,9 +34,8 @@ class Welcome extends Component {
               Start Questionaire
             </button> */}
           </div>
-                 {/* <button className="next"> */}
-
-      {/*  </button> */}
+        </form>
+       {/* <button className="next"> */}
           <Link
           className="button is-primary"
             to={{
@@ -46,8 +46,8 @@ class Welcome extends Component {
             {' '}
             Start questionnaire
           </Link>
-        </form>
-
+      {/*  </button> */}
+      </div>
     );
   }
 }

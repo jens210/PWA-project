@@ -6,12 +6,15 @@ import Q9detail from './Q9detail';
 class Questions extends Component {
   render() {
     return (
+<div className="full-page">
+      <h1 className='title'>{this.props.nickname}</h1>
+
       <form onSubmit={this.props.handleInput}>
-        <h1>{this.props.nickname}</h1>
-        <button className="button next" type="submit">
+        <button className="button ontainer button is-success is-large" type="submit">
         Send answers
       </button>
         <div className="question" id="Q1">
+        <p>1/1</p>
           <p>Number of hours since last release</p>
           <input
             className="question_input"
@@ -305,6 +308,7 @@ class Questions extends Component {
         </div>
 
       </form>
+      </div>
     );
   }
 }

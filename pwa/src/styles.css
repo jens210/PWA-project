@@ -16,7 +16,6 @@ body {
 .container {
   width: 100vw;
   background-color: #eeeeee;
-  /* background-color: #ADB680; */
 }
 
 .question {
@@ -119,3 +118,16 @@ body {
   min-height: 5vh;
   font-size: 2rem;
 }
+
+/* .full-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #209cee;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+label {
+  font-size: 1.24em;
+} */

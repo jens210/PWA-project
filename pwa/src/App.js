@@ -11,6 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       // answers: [],
+      nickname: '',
       success: false,
     };
     this.onChange = this.onChange.bind(this);
@@ -128,6 +129,7 @@ class App extends Component {
                 <Welcome
                   onChange={this.onChange}
                   handleInput={this.handleInput}
+                  nickname={this.state.nickname}
                 />
               )}
             />
