@@ -58,58 +58,67 @@ mongoose
   )
   .catch(err => console.error(`${'\n'}❌ ❌ ❌  CONNECTION ERROR: `, err));
 
-const answerSchema = new mongoose.Schema({
-  nickname: {
-    type: String,
-    // required: true,
-  },
-  date: String,
-  q1: {
-    type: Number,
-    // required: true,
-  },
-  q2: {
-    type: String,
-    // required: true,
-  },
-  q3: {
-    type: String,
-    // required: true,
-  },
-  q4: {
-    type: String,
-    // required: true,
-  },
-  q5: {
+const answerSchema = new mongoose.Schema(
+  {
+    nickname: {
       type: String,
       // required: true,
-  },
-  q5_detail: {
-    type: String
-  },
-  q6: {
+    },
+    // Added timestamps instead
+    // date: String,
+    q1: {
+      type: Number,
+      // required: true,
+    },
+    q2: {
       type: String,
       // required: true,
-  },
-  q6_detail: {
-    type: String
-  },
-  q7: {
-    type: String,
-    // required: true,
-  },
-  q8: {
-    type: String,
-    // required: true,
-  },
-  q9: {
+    },
+    q3: {
       type: String,
       // required: true,
+    },
+    q4: {
+      type: String,
+      // required: true,
+    },
+    q5: {
+      type: String,
+      // required: true,
+    },
+    q5_detail: {
+      type: String,
+    },
+    q6: {
+      type: String,
+      // required: true,
+    },
+    q6_detail: {
+      type: String,
+    },
+    q7: {
+      type: String,
+      // required: true,
+    },
+    q8: {
+      type: String,
+      // required: true,
+    },
+    q9: {
+      type: String,
+      // required: true,
+    },
+    q9_detail: {
+      type: String,
+    },
   },
-  q9_detail: {
-    type: String
-  },
-});
+  {
+    timestamps: {
+      createdAt: true,
+      updatedAt: false,
+    },
+  }
+);
 
 // Questionnaire Model
 const Answer = mongoose.model('Answer', answerSchema);
@@ -129,7 +138,6 @@ app.post('/answers', (req, res) => {
   let newAnswer = new Answer({
     // why not use req.body instead?
     nickname: req.body.nickname,
-    date: timestamp,
     q1: req.body.q1,
     q2: req.body.q2,
     q3: req.body.q3,
@@ -141,7 +149,7 @@ app.post('/answers', (req, res) => {
     q7: req.body.q7,
     q8: req.body.q8,
     q9: req.body.q9,
-    q9_detail: req.body.q9_detail
+    q9_detail: req.body.q9_detail,
   });
   // if (
   //   !newAnswer.nickname ||
@@ -166,7 +174,7 @@ app.post('/answers', (req, res) => {
 
 // catch all
 app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, '../build', 'index.html'));
+  response.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
 // Telling the console that the server is running on port 8080

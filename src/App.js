@@ -20,19 +20,19 @@ class App extends Component {
   }
   componentDidMount() {
     this.setState({
-      nickname: 'jack2',
+      nickname: 'RYU not KEN',
       q1: false,
       q2: false,
       q3: false,
       q4: false,
       q5: true,
-      q5_detail: 'Empty',
+      q5_detail: 'Empty Q5',
       q6: true,
-      q6_detail: 'empty',
+      q6_detail: 'Q6 Empty',
       q7: false,
       q8: false,
       q9: true,
-      q9_detail: 'empty',
+      q9_detail: 'No Q9',
     });
   }
 
@@ -87,7 +87,6 @@ class App extends Component {
 
   handleInput(event) {
     event.preventDefault();
-
 
     this.addQuestionaire(
       this.state.nickname,
