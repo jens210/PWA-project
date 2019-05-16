@@ -33,6 +33,7 @@ if ('function' === typeof importScripts) {
             maxRetentionTime: 24 * 60 // Retry for max of 24 Hours
         });
 
+
         // have a look at this https://developers.google.com/web/tools/workbox/modules/workbox-background-sync
         workbox.routing.registerRoute(
             /\/api\/.*\/*.json/,
@@ -41,6 +42,19 @@ if ('function' === typeof importScripts) {
             }),
             'POST'
         );
+
+        const queue = new workbox.backgroundSync.Queue('myQueueName');
+
+        self.addEventListener('fetch', (event) => {
+            // Clone the request to ensure it's save to read when
+            // adding to the Queue.
+            const promiseChain = fetch(event.request.clone())
+                .catch((err) => {
+                    return queue.pushRequest({ request: event.request });
+                });
+
+            event.waitUntil(promiseChain);
+        });
 
 
     } else {
