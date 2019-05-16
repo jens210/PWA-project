@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 class Welcome extends Component {
   constructor(props) {
     super(props);
-
     this.state = { input: [] };
   }
 
@@ -12,9 +11,10 @@ class Welcome extends Component {
     return (
       <form>
         <h1 className="text-center"> Welcome </h1>
-        <h2 className="subtitle">
+        <p className="subtitle">
           - We strongly encourage you to fill our this form before every visit
-        </h2>
+        </p>
+        
         <div className="form-group">
           <input
             name="nickname"
@@ -34,7 +34,6 @@ class Welcome extends Component {
           }}
           disabled={this.props.nickname.length < 1 ? true : false}
         >
-          {' '}
           Start questionnaire
         </Link>
       </form>
