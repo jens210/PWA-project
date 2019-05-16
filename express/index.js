@@ -151,20 +151,20 @@ app.post('/api/answers', (req, res) => {
     q9: req.body.q9,
     q9_detail: req.body.q9_detail,
   });
-  // if (
-  //   !newAnswer.nickname ||
-  //   !newAnswer.q1 ||
-  //   !newAnswer.q2 ||
-  //   !newAnswer.q3 ||
-  //   !newAnswer.q4 ||
-  //   !newAnswer.q5 ||
-  //   !newAnswer.q6 ||
-  //   !newAnswer.q7 ||
-  //   !newAnswer.q8 ||
-  //   !newAnswer.q9
-  // ) {
-  //   return res.status(400).json({ msg: 'Information missing' });
-  // }
+  if (
+    !newAnswer.nickname ||
+    !newAnswer.q1 ||
+    !newAnswer.q2 ||
+    !newAnswer.q3 ||
+    !newAnswer.q4 ||
+    !newAnswer.q5 ||
+    !newAnswer.q6 ||
+    !newAnswer.q7 ||
+    !newAnswer.q8 ||
+    !newAnswer.q9
+  ) {
+    return res.status(400).json({ msg: 'Information missing' });
+  }
 
   newAnswer
     .save()

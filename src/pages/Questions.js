@@ -20,7 +20,7 @@ class Questions extends Component {
               <input
                   className="question_input"
                   data-msg-required="Write number of hours"
-                  // required="required"
+                  required="required"
                   type="text"
                   name="q1"
                   id="Q1_detail"
@@ -37,7 +37,7 @@ class Questions extends Component {
                   <input
                       className="question_option_input"
                       data-msg-required="Choose one of the options"
-                      // required="required"
+                      required="required"
                       type="radio"
                       name="q2"
                       value="yes"
@@ -51,7 +51,7 @@ class Questions extends Component {
                   <input
                       className="question_option_input"
                       data-msg-required="Choose one of the options"
-                      // required="required"
+                      required="required"
                       type="radio"
                       name="q2"
                       value="no"
@@ -71,7 +71,7 @@ class Questions extends Component {
                   <input
                       className="question_option_input"
                       data-msg-required="Choose one of the options"
-                      // required="required"
+                      required="required"
                       type="radio"
                       name="q3"
                       value="yes"
@@ -85,7 +85,7 @@ class Questions extends Component {
                   <input
                       className="question_option_input"
                       data-msg-required="Choose one of the options"
-                      // required="required"
+                      required="required"
                       type="radio"
                       name="q3"
                       value="no"
@@ -105,7 +105,7 @@ class Questions extends Component {
                   <input
                       className="question_option_input"
                       data-msg-required="Choose one of the options"
-                      // required="required"
+                      required="required"
                       type="radio"
                       name="q4"
                       value="yes"
@@ -118,8 +118,8 @@ class Questions extends Component {
                   NO
                   <input
                       className="question_option_input"
-                      // data-msg-required="Choose one of the options"
-                      // required="required"
+                      data-msg-required="Choose one of the options"
+                      required="required"
                       type="radio"
                       name="q4"
                       value="no"
@@ -138,8 +138,8 @@ class Questions extends Component {
                   YES
                   <input
                       className="question_option_input"
-                      // data-msg-required="Choose one of the options"
-                      // required="required"
+                      data-msg-required="Choose one of the options"
+                      required="required"
                       type="radio"
                       name="q5"
                       value="yes"
@@ -152,8 +152,8 @@ class Questions extends Component {
                   NO
                   <input
                       className="question_option_input"
-                      // data-msg-required="Choose one of the options"
-                      // required="required"
+                      data-msg-required="Choose one of the options"
+                      required="required"
                       type="radio"
                       name="q5"
                       value="no"
@@ -178,8 +178,8 @@ class Questions extends Component {
                   YES
                   <input
                       className="question_option_input"
-                      // data-msg-required="Choose one of the options"
-                      // required="required"
+                      data-msg-required="Choose one of the options"
+                      required="required"
                       type="radio"
                       name="q6"
                       value="yes"
@@ -192,8 +192,8 @@ class Questions extends Component {
                   NO
                   <input
                       className="question_option_input"
-                      // data-msg-required="Choose one of the options"
-                      // required="required"
+                      data-msg-required="Choose one of the options"
+                      required="required"
                       type="radio"
                       name="q6"
                       value="no"
@@ -215,8 +215,8 @@ class Questions extends Component {
                   YES
                   <input
                       className="question_option_input"
-                      // data-msg-required="Choose one of the options"
-                      // required="required"
+                      data-msg-required="Choose one of the options"
+                      required="required"
                       type="radio"
                       name="q7"
                       value="yes"
@@ -229,8 +229,8 @@ class Questions extends Component {
                   NO
                   <input
                       className="question_option_input"
-                      // data-msg-required="Choose one of the options"
-                      // required="required"
+                      data-msg-required="Choose one of the options"
+                      required="required"
                       type="radio"
                       name="q7"
                       value="no"
@@ -252,8 +252,8 @@ class Questions extends Component {
                   YES
                   <input
                       className="question_option_input"
-                      // data-msg-required="Choose one of the options"
-                      // required="required"
+                      data-msg-required="Choose one of the options"
+                      required="required"
                       type="radio"
                       name="q8"
                       value="yes"
@@ -266,8 +266,8 @@ class Questions extends Component {
                   NO
                   <input
                       className="question_option_input"
-                      // data-msg-required="Choose one of the options"
-                      // required="required"
+                      data-msg-required="Choose one of the options"
+                      required="required"
                       type="radio"
                       name="q8"
                       value="no"
@@ -286,8 +286,8 @@ class Questions extends Component {
                   YES
                   <input
                       className="question_option_input"
-                      // data-msg-required="Choose one of the options"
-                      // required="required"
+                      data-msg-required="Choose one of the options"
+                      required="required"
                       type="radio"
                       name="q9"
                       value="yes"
@@ -300,8 +300,8 @@ class Questions extends Component {
                   NO
                   <input
                       className="question_option_input"
-                      // data-msg-required="Choose one of the options"
-                      // required="required"
+                      data-msg-required="Choose one of the options"
+                      required="required"
                       type="radio"
                       name="q9"
                       value="no"
