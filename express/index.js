@@ -163,7 +163,7 @@ app.post('/api/answers', (req, res) => {
     !newAnswer.q8 ||
     !newAnswer.q9
   ) {
-    return res.status(400).json({ msg: 'Information missing' });
+    return res.status(400).json({ msg: 'Information missing the POST failed' });
   }
 
   newAnswer

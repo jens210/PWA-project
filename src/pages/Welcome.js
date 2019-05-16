@@ -16,7 +16,8 @@ class Welcome extends Component {
                     <p>We strongly encourage you to fill our this form before every visit</p>
                     <input
                         name="nickname"
-                        required
+                        data-msg-required="Write a name"
+                        required="required"
                         type="text"
                         className="question_input"
                         placeholder="Type your name"
