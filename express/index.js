@@ -128,13 +128,13 @@ const Answer = mongoose.model('Answer', answerSchema);
 /***** ROUTES *****/
 // GET
 // GET
-app.get('/answers', (req, res) => {
+app.get('/api/answers', (req, res) => {
   Answer.find({}, (err, Answer) => res.json(Answer));
 });
 
 // POST
 // POST
-app.post('/answers', (req, res) => {
+app.post('/api/answers', (req, res) => {
   let newAnswer = new Answer({
     // why not use req.body instead?
     nickname: req.body.nickname,
