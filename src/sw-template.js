@@ -33,7 +33,7 @@ if ('function' === typeof importScripts) {
         const bgSyncPlugin = new workbox.backgroundSync.Plugin('myQueueName', {
             maxRetentionTime: 24 * 60 // Retry for max of 24 Hours
         });
-*/
+
 
         // have a look at this https://developers.google.com/web/tools/workbox/modules/workbox-background-sync
         workbox.routing.registerRoute(
@@ -43,7 +43,7 @@ if ('function' === typeof importScripts) {
             }),
             'POST'
         );
-
+*/
         const queue = new workbox.backgroundSync.Queue('myQueueName');
 
         self.addEventListener('fetch', (event) => {
