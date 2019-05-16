@@ -20,6 +20,7 @@ class App extends Component {
   }
   componentDidMount() {
     this.setState({
+      /*
       nickname: 'RYU not KEN',
       q1: false,
       q2: false,
@@ -33,6 +34,7 @@ class App extends Component {
       q8: false,
       q9: true,
       q9_detail: 'No Q9',
+   */
     });
   }
 
