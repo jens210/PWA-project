@@ -87,6 +87,7 @@ class App extends Component {
 
   handleInput(event) {
     event.preventDefault();
+    this.setState({ success: true }); // maybe
 
     this.addQuestionaire(
       this.state.nickname,
