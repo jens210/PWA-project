@@ -28,7 +28,6 @@ if ('function' === typeof importScripts) {
             })
         );
 
-        /*
         // Background sync 
         const bgSyncPlugin = new workbox.backgroundSync.Plugin('myQueueName', {
             maxRetentionTime: 24 * 60 // Retry for max of 24 Hours
@@ -37,13 +36,13 @@ if ('function' === typeof importScripts) {
 
         // have a look at this https://developers.google.com/web/tools/workbox/modules/workbox-background-sync
         workbox.routing.registerRoute(
-            /\/api\/.*\/*.json/,
+           "/api/answers ",
             new workbox.strategies.NetworkOnly({
                 plugins: [bgSyncPlugin]
             }),
             'POST'
         );
-*/
+/*
         const queue = new workbox.backgroundSync.Queue('myQueueName');
 
         self.addEventListener('fetch', (event) => {
@@ -56,7 +55,7 @@ if ('function' === typeof importScripts) {
 
             event.waitUntil(promiseChain);
         });
-
+*/
 
     } else {
         console.log('Workbox could not be loaded. No Offline support');
