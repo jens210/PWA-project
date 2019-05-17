@@ -18,25 +18,6 @@ class App extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.addQuestionaire = this.addQuestionaire.bind(this);
   }
-  componentDidMount() {
-    this.setState({
-      /*
-      nickname: 'RYU not KEN',
-      q1: false,
-      q2: false,
-      q3: false,
-      q4: false,
-      q5: true,
-      q5_detail: 'Empty Q5',
-      q6: true,
-      q6_detail: 'Q6 Empty',
-      q7: false,
-      q8: false,
-      q9: true,
-      q9_detail: 'No Q9',
-   */
-    });
-  }
 
   addQuestionaire(
     nickname,
@@ -110,12 +91,9 @@ class App extends Component {
 
   // TODO
   onChange(event) {
-    //console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value,
     });
-    // console.log(event.target.value === "true");
-    // console.log(event)
   }
 
   render() {
@@ -154,7 +132,7 @@ class App extends Component {
             {/* ROUTE SUCCESS */}
             <Route
               exact
-              path={'/Succes'}
+              path={'/Success'}
               render={props => (
                 <Success
                   {...props}
