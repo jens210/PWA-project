@@ -247,6 +247,12 @@ body {
   font-size: 2rem;
 }
 
+.disabled--link {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.33;
+}
+
 /* .full-page {
   width: 100vw;
   height: 100vh;
