@@ -5,6 +5,7 @@ import Welcome from './pages/Welcome';
 import Questionnaire from './pages/Questionnaire';
 import Success from './pages/Success';
 import NotFound from './pages/NotFound';
+import { Offline, Online } from 'react-detect-offline';
 
 class App extends Component {
   constructor(props) {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Offline, Online } from 'react-detect-offline';
 
 class Welcome extends Component {
   constructor(props) {
@@ -27,7 +28,9 @@ class Welcome extends Component {
           />
 
           <Link
-            className={`button btn btn-info is-primary ${this.props.nickname.length < 1 ? 'disabled--link' : ''}`}
+            className={`button btn btn-info is-primary ${
+              this.props.nickname.length < 1 ? 'disabled--link' : ''
+            }`}
             to={{
               pathname: `/Questionnaire`,
               state: { nickname: this.state.nickname },
@@ -37,6 +40,13 @@ class Welcome extends Component {
             {' '}
             Start questionnaire
           </Link>
+          <Offline>
+            <p className="btn btn-warning text-center center-block disabled">
+              You appear to have an unstable connection.
+              Don't worry. Your answers will still be
+              sent
+            </p>
+          </Offline>
         </div>
       </form>
     );

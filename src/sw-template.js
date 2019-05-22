@@ -29,7 +29,7 @@ if ('function' === typeof importScripts) {
         );
 
         // Background sync 
-        const bgSyncPlugin = new workbox.backgroundSync.Plugin('myQueueName', {
+        const bgSyncPlugin = new workbox.backgroundSync.Plugin('Questionnaire Background Sync', {
             maxRetentionTime: 24 * 60 // Retry for max of 24 Hours
         });
 
