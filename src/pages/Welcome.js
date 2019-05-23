@@ -43,8 +43,6 @@ class Welcome extends Component {
           <Offline>
             <p className="btn btn-warning text-center center-block disabled">
               You appear to have an unstable connection.
-              Don't worry. Your answers will still be
-              sent
             </p>
           </Offline>
         </div>
