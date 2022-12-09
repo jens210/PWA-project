@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "react": "^16.8.6",
     "react-detect-offline": "^2.4.0",
     "react-dom": "^16.8.6",
